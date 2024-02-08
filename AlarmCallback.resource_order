@@ -1,0 +1,26 @@
+{
+  "FolderOrderSettings": [
+    {"name":"Extensions","order":14,"path":"folders/Extensions.yy",},
+    {"name":"AlarmCallback","order":1,"path":"folders/Extensions/AlarmCallback.yy",},
+    {"name":"System","order":1,"path":"folders/Extensions/AlarmCallback/System.yy",},
+    {"name":"User","order":2,"path":"folders/Extensions/AlarmCallback/User.yy",},
+    {"name":"Objects","order":9,"path":"folders/Objects.yy",},
+    {"name":"Rooms","order":10,"path":"folders/Rooms.yy",},
+    {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
+  ],
+  "ResourceOrderSettings": [
+    {"name":"__AlarmSystem","order":1,"path":"scripts/__AlarmSystem/__AlarmSystem.yy",},
+    {"name":"AlarmPause","order":4,"path":"scripts/AlarmPause/AlarmPause.yy",},
+    {"name":"AlarmPlay","order":3,"path":"scripts/AlarmPlay/AlarmPlay.yy",},
+    {"name":"AlarmFire","order":1,"path":"scripts/AlarmFire/AlarmFire.yy",},
+    {"name":"roomTest","order":1,"path":"rooms/roomTest/roomTest.yy",},
+    {"name":"sprEnemy","order":1,"path":"sprites/sprEnemy/sprEnemy.yy",},
+    {"name":"AlarmStop","order":5,"path":"scripts/AlarmStop/AlarmStop.yy",},
+    {"name":"objCampfire","order":2,"path":"objects/objCampfire/objCampfire.yy",},
+    {"name":"AlarmExists","order":2,"path":"scripts/AlarmExists/AlarmExists.yy",},
+    {"name":"objTest","order":1,"path":"objects/objTest/objTest.yy",},
+    {"name":"AlarmDestroy","order":7,"path":"scripts/AlarmDestroy/AlarmDestroy.yy",},
+    {"name":"objEnemy","order":3,"path":"objects/objEnemy/objEnemy.yy",},
+    {"name":"AlarmFinish","order":6,"path":"scripts/AlarmFinish/AlarmFinish.yy",},
+  ],
+}

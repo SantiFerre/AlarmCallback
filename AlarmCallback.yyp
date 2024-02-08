@@ -1,0 +1,53 @@
+{
+  "resourceType": "GMProject",
+  "resourceVersion": "1.7",
+  "name": "AlarmCallback",
+  "AudioGroups": [
+    {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
+  ],
+  "configs": {
+    "children": [],
+    "name": "Default",
+  },
+  "defaultScriptType": 1,
+  "Folders": [
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Extensions","folderPath":"folders/Extensions.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"AlarmCallback","folderPath":"folders/Extensions/AlarmCallback.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"System","folderPath":"folders/Extensions/AlarmCallback/System.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"User","folderPath":"folders/Extensions/AlarmCallback/User.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Objects.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Rooms.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Sprites.yy",},
+  ],
+  "IncludedFiles": [],
+  "isEcma": false,
+  "LibraryEmitters": [],
+  "MetaData": {
+    "IDEVersion": "2023.11.1.129",
+  },
+  "resources": [
+    {"id":{"name":"__AlarmSystem","path":"scripts/__AlarmSystem/__AlarmSystem.yy",},},
+    {"id":{"name":"AlarmPause","path":"scripts/AlarmPause/AlarmPause.yy",},},
+    {"id":{"name":"sprCampfire","path":"sprites/sprCampfire/sprCampfire.yy",},},
+    {"id":{"name":"AlarmPlay","path":"scripts/AlarmPlay/AlarmPlay.yy",},},
+    {"id":{"name":"AlarmFire","path":"scripts/AlarmFire/AlarmFire.yy",},},
+    {"id":{"name":"__AlarmMacros","path":"scripts/__AlarmMacros/__AlarmMacros.yy",},},
+    {"id":{"name":"AlarmCreate","path":"scripts/AlarmCreate/AlarmCreate.yy",},},
+    {"id":{"name":"roomTest","path":"rooms/roomTest/roomTest.yy",},},
+    {"id":{"name":"sprEnemy","path":"sprites/sprEnemy/sprEnemy.yy",},},
+    {"id":{"name":"AlarmStop","path":"scripts/AlarmStop/AlarmStop.yy",},},
+    {"id":{"name":"objCampfire","path":"objects/objCampfire/objCampfire.yy",},},
+    {"id":{"name":"AlarmExists","path":"scripts/AlarmExists/AlarmExists.yy",},},
+    {"id":{"name":"objTest","path":"objects/objTest/objTest.yy",},},
+    {"id":{"name":"AlarmDestroy","path":"scripts/AlarmDestroy/AlarmDestroy.yy",},},
+    {"id":{"name":"objEnemy","path":"objects/objEnemy/objEnemy.yy",},},
+    {"id":{"name":"AlarmFinish","path":"scripts/AlarmFinish/AlarmFinish.yy",},},
+  ],
+  "RoomOrderNodes": [
+    {"roomId":{"name":"roomTest","path":"rooms/roomTest/roomTest.yy",},},
+  ],
+  "templateType": "game",
+  "TextureGroups": [
+    {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
+  ],
+}
