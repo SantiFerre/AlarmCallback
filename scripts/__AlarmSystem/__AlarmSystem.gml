@@ -86,16 +86,16 @@ function __AlarmStep() {
 				
 							var _should_remove = false;
 							
-							if (_global.__alarmArray[_i].reps >= 0) { //If there are no more iterations left, free memory
+							if (_global.__alarmArray[_i].reps >= 0) { //Check iterations and decrease
 								
 								_global.__alarmArray[_i].reps--;
 								
-								if (_global.__alarmArray[_i].reps < 0) {
+								if (_global.__alarmArray[_i].reps < 0) { //If there are no more iterations left, free memory
 									_should_remove = true;
 								}
 							}
 							
-							if (_should_remove) {
+							if (_should_remove) { //If there are no more iterations left, free memory
 								__AlarmRemove(_global.__alarmArray[_i]);
 								--_i;
 							} else { //If there are more repetitions or it is infinite, reset the counter.
