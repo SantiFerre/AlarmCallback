@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "AlarmCreate",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "User",
-    "path": "folders/Extensions/AlarmCallback/User.yy",
+  "$GMScript":"",
+  "%Name":"AlarmCreate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"AlarmCreate",
+  "parent":{
+    "name":"User",
+    "path":"folders/Extensions/AlarmCallback/User.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

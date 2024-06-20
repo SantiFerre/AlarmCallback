@@ -1,4 +1,4 @@
-// [AlarmCallback 1.0.0]
+// [AlarmCallback 1.0.1]
 // Created by Santi Ferre (Banensoft)
 
 // Feather disable all
@@ -25,6 +25,7 @@ function __AlarmInitialize() {
 }
 
 
+/// @ignore
 /// @function __AlarmTargetExists( target )
 /// @description Checks to see if a alarm's target is still valid
 /// @param {Any}	target		Instance or struct id/reference
@@ -58,6 +59,7 @@ function __AlarmTargetExists(target) {
 }
 
 
+/// @ignore
 /// @function __AlarmStep()
 /// @description Loop each step to decrease alarms and trigger them
 function __AlarmStep() {
@@ -74,15 +76,31 @@ function __AlarmStep() {
 			case __ALARM_DEACTIVATED:
 				
 				if (_state == __ALARM_ACTIVATED or (ALARM_INCLUDE_DEACTIVATED_INSTANCES and _state == __ALARM_DEACTIVATED)) {
-					if (_global.__alarmArray[_i].state == __ALARM_STATE_PLAY and --_global.__alarmArray[_i].count <= 0) { //Trigger alarm
+					if (_global.__alarmArray[_i].state == __ALARM_STATE_PLAY) {
+						
+						_global.__alarmArray[_i].count--;
+						
+						if (_global.__alarmArray[_i].count <= 0) { //Trigger alarm
 				
-						__AlarmTrigger(_global.__alarmArray[_i]);
+							__AlarmTrigger(_global.__alarmArray[_i]);
 				
-						if (_global.__alarmArray[_i].reps != -1 and _global.__alarmArray[_i].reps-- == 0) { //Si ya no quedan repeticiones, libera memoria
-							__AlarmRemove(_global.__alarmArray[_i]);
-							--_i;
-						} else { //Si hay más repeticiones o es infinito reinicia el contador
-							_global.__alarmArray[_i].count = _global.__alarmArray[_i].steps;
+							var _should_remove = false;
+							
+							if (_global.__alarmArray[_i].reps >= 0) { //If there are no more iterations left, free memory
+								
+								_global.__alarmArray[_i].reps--;
+								
+								if (_global.__alarmArray[_i].reps < 0) {
+									_should_remove = true;
+								}
+							}
+							
+							if (_should_remove) {
+								__AlarmRemove(_global.__alarmArray[_i]);
+								--_i;
+							} else { //If there are more repetitions or it is infinite, reset the counter.
+								_global.__alarmArray[_i].count = _global.__alarmArray[_i].steps;
+							}
 						}
 					}
 				}
@@ -99,6 +117,7 @@ function __AlarmStep() {
 }
 
 
+/// @ignore
 /// @function __AlarmRemove( alarm_id )
 /// @description Checks to see if a alarm's target is still valid
 /// @param {Any}	alarm_id	The ID of the previously created alarm
@@ -117,6 +136,7 @@ function __AlarmRemove(alarm_id) {
 }
 
 
+/// @ignore
 /// @function __AlarmTrigger( alarm_id )
 /// @description Checks to see if a alarm's target is still valid
 /// @param {Any}	alarm_id	The ID of the previously created alarm
@@ -128,6 +148,7 @@ function __AlarmTrigger(alarm_id) {
 }
 
 
+/// @ignore
 /// @function __AlarmPlay( alarm_id )
 /// @description Checks to see if a alarm's target is still valid
 /// @param {Any}	alarm_id	The ID of the previously created alarm
@@ -137,6 +158,7 @@ function __AlarmPlay(alarm_id) {
 }
 
 
+/// @ignore
 /// @function __AlarmPause( alarm_id )
 /// @description Checks to see if a alarm's target is still valid
 /// @param {Any}	alarm_id	The ID of the previously created alarm
@@ -146,6 +168,7 @@ function __AlarmPause(alarm_id) {
 }
 
 
+/// @ignore
 /// @function __AlarmStop( alarm_id )
 /// @description Checks to see if a alarm's target is still valid
 /// @param {Any}	alarm_id	The ID of the previously created alarm

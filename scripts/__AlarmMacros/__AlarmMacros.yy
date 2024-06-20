@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__AlarmMacros",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "System",
-    "path": "folders/Extensions/AlarmCallback/System.yy",
+  "$GMScript":"",
+  "%Name":"__AlarmMacros",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__AlarmMacros",
+  "parent":{
+    "name":"System",
+    "path":"folders/Extensions/AlarmCallback/System.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
