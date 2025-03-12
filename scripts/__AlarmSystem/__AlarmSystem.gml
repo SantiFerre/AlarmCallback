@@ -1,4 +1,4 @@
-// [AlarmCallback 1.0.1]
+// [AlarmCallback 1.0.2]
 // Created by Santi Ferre (Banensoft)
 
 // Feather disable all
@@ -143,8 +143,8 @@ function __AlarmRemove(alarm_id) {
 function __AlarmTrigger(alarm_id) {
 	
 	static _global = __AlarmInitialize();
-
-	method_call(method(alarm_id.target, alarm_id.callback), alarm_id.args); //If you're using GMLive, replace 'method()' by 'live_method()'
+    
+    method_call(method(is_struct(alarm_id.target) ? alarm_id.target.ref : alarm_id.target, alarm_id.callback), alarm_id.args); //If you're using GMLive, replace 'method()' by 'live_method()'
 }
 
 

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"AlarmExists",
   "isCompatibility":false,
   "isDnD":false,
