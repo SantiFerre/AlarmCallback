@@ -1,4 +1,4 @@
-// [AlarmCallback 1.0.2]
+// [AlarmCallback 1.0.3]
 // Created by Santi Ferre (Banensoft)
 
 // Feather disable all
@@ -14,7 +14,7 @@
 /// @return {alarm_id}			
 function AlarmCreate(target, steps, reps, callback) {
 	
-	static _global = __AlarmInitialize();
+	static _alarmSystem = __AlarmInitialize();
 	
 	var _args = [];
 	var _index = 4;
@@ -27,7 +27,7 @@ function AlarmCreate(target, steps, reps, callback) {
 		}
 	}
 	
-	array_push(_global.__alarmArray, {target: is_struct(target) ? weak_ref_create(target) : target, steps: steps, count: steps, totalReps: reps, reps: reps, callback: callback, args: _args, state: __ALARM_STATE_PAUSE});
+	array_push(_alarmSystem.__alarmArray, {target: is_struct(target) ? weak_ref_create(target) : target, steps: steps, count: steps, totalReps: reps, reps: reps, callback: callback, args: _args, state: __ALARM_STATE_PAUSE});
 	
-	return _global.__alarmArray[array_length(_global.__alarmArray)-1];
+	return _alarmSystem.__alarmArray[array_length(_alarmSystem.__alarmArray)-1];
 }

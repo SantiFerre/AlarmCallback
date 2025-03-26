@@ -1,4 +1,4 @@
-// [AlarmCallback 1.0.2]
+// [AlarmCallback 1.0.3]
 // Created by Santi Ferre (Banensoft)
 
 // Feather disable all
@@ -14,7 +14,7 @@
 /// @return {alarm_id}
 function AlarmFire(target, steps, reps, callback) {
 	
-	static _global = __AlarmInitialize();
+	static _alarmSystem = __AlarmInitialize();
 	
 	var _args = [];
 	var _index = 4;
@@ -27,7 +27,7 @@ function AlarmFire(target, steps, reps, callback) {
 	
 	if (AlarmExists(_alarm_id)) {
 		if (_alarm_id.steps == 0) {
-			AlarmFinish(_global.__alarmArray[array_length(_global.__alarmArray)-1]);
+			AlarmFinish(_alarmSystem.__alarmArray[array_length(_alarmSystem.__alarmArray)-1]);
 			
 			return undefined;
 		} else {		

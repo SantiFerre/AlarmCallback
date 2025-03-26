@@ -1,4 +1,4 @@
-// [AlarmCallback 1.0.2]
+// [AlarmCallback 1.0.3]
 // Created by Santi Ferre (Banensoft)
 
 // Feather disable all
@@ -7,10 +7,10 @@
 /// @description Initialize the library
 function __AlarmInitialize() {
 	
-    static _global = undefined;
-    if (_global != undefined) return _global;
+    static _alarmSystem = undefined;
+    if (_alarmSystem != undefined) return _alarmSystem;
     
-    _global = {
+    _alarmSystem = {
         __alarmArray:  [],
     };
     
@@ -21,7 +21,7 @@ function __AlarmInitialize() {
         show_error("AlarmCallback is only supported on GMS 2022 LTS and later\n ", true);
     }
     
-    return _global;
+    return _alarmSystem;
 }
 
 
@@ -32,7 +32,7 @@ function __AlarmInitialize() {
 /// @return {Bool} 
 function __AlarmTargetExists(target) {
 	
-	static _global = __AlarmInitialize();
+	static _alarmSystem = __AlarmInitialize();
 	
 	if (is_struct(target)) { // STRUCT TARGET
 		return weak_ref_alive(target);	
@@ -64,42 +64,42 @@ function __AlarmTargetExists(target) {
 /// @description Loop each step to decrease alarms and trigger them
 function __AlarmStep() {
 	
-	static _global = __AlarmInitialize();
+	static _alarmSystem = __AlarmInitialize();
 	
 	var _i = 0;
-	repeat (array_length(_global.__alarmArray)) {
+	repeat (array_length(_alarmSystem.__alarmArray)) {
 		
-		var _state = __AlarmTargetExists(_global.__alarmArray[_i].target);
+		var _state = __AlarmTargetExists(_alarmSystem.__alarmArray[_i].target);
 		
 		switch(_state) {
 			case __ALARM_ACTIVATED:
 			case __ALARM_DEACTIVATED:
 				
 				if (_state == __ALARM_ACTIVATED or (ALARM_INCLUDE_DEACTIVATED_INSTANCES and _state == __ALARM_DEACTIVATED)) {
-					if (_global.__alarmArray[_i].state == __ALARM_STATE_PLAY) {
+					if (_alarmSystem.__alarmArray[_i].state == __ALARM_STATE_PLAY) {
 						
-						_global.__alarmArray[_i].count--;
+						_alarmSystem.__alarmArray[_i].count--;
 						
-						if (_global.__alarmArray[_i].count <= 0) { //Trigger alarm
+						if (_alarmSystem.__alarmArray[_i].count <= 0) { //Trigger alarm
 				
-							__AlarmTrigger(_global.__alarmArray[_i]);
+							__AlarmTrigger(_alarmSystem.__alarmArray[_i]);
 				
 							var _should_remove = false;
 							
-							if (_global.__alarmArray[_i].reps >= 0) { //Check iterations and decrease
+							if (_alarmSystem.__alarmArray[_i].reps >= 0) { //Check iterations and decrease
 								
-								_global.__alarmArray[_i].reps--;
+								_alarmSystem.__alarmArray[_i].reps--;
 								
-								if (_global.__alarmArray[_i].reps < 0) { //If there are no more iterations left, free memory
+								if (_alarmSystem.__alarmArray[_i].reps < 0) { //If there are no more iterations left, free memory
 									_should_remove = true;
 								}
 							}
 							
 							if (_should_remove) { //If there are no more iterations left, free memory
-								__AlarmRemove(_global.__alarmArray[_i]);
+								__AlarmRemove(_alarmSystem.__alarmArray[_i]);
 								--_i;
 							} else { //If there are more repetitions or it is infinite, reset the counter.
-								_global.__alarmArray[_i].count = _global.__alarmArray[_i].steps;
+								_alarmSystem.__alarmArray[_i].count = _alarmSystem.__alarmArray[_i].steps;
 							}
 						}
 					}
@@ -109,7 +109,7 @@ function __AlarmStep() {
 				break;
 				
 			case __ALARM_NO_EXISTS:
-				__AlarmRemove(_global.__alarmArray[_i]);
+				__AlarmRemove(_alarmSystem.__alarmArray[_i]);
 			
 				break;
 		}
@@ -123,12 +123,12 @@ function __AlarmStep() {
 /// @param {Any}	alarm_id	The ID of the previously created alarm
 function __AlarmRemove(alarm_id) {
 	
-	static _global = __AlarmInitialize();
+	static _alarmSystem = __AlarmInitialize();
 	
 	var _i = 0;
-	repeat (array_length(_global.__alarmArray)) {
-		if (alarm_id == _global.__alarmArray[_i]) {
-			array_delete(_global.__alarmArray, _i, 1);
+	repeat (array_length(_alarmSystem.__alarmArray)) {
+		if (alarm_id == _alarmSystem.__alarmArray[_i]) {
+			array_delete(_alarmSystem.__alarmArray, _i, 1);
 		} else {
 			++_i;
 		}
@@ -142,7 +142,7 @@ function __AlarmRemove(alarm_id) {
 /// @param {Any}	alarm_id	The ID of the previously created alarm
 function __AlarmTrigger(alarm_id) {
 	
-	static _global = __AlarmInitialize();
+	static _alarmSystem = __AlarmInitialize();
     
     method_call(method(is_struct(alarm_id.target) ? alarm_id.target.ref : alarm_id.target, alarm_id.callback), alarm_id.args); //If you're using GMLive, replace 'method()' by 'live_method()'
 }

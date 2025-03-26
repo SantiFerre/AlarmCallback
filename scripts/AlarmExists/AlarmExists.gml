@@ -1,4 +1,4 @@
-// [AlarmCallback 1.0.2]
+// [AlarmCallback 1.0.3]
 // Created by Santi Ferre (Banensoft)
 
 // Feather disable all
@@ -9,7 +9,7 @@
 /// @return {Bool}
 function AlarmExists(alarm_id) {
 	
-	static _global = __AlarmInitialize();
+	static _alarmSystem = __AlarmInitialize();
 	
-	return array_contains(_global.__alarmArray, alarm_id);
+	return array_contains(_alarmSystem.__alarmArray, alarm_id);
 }
