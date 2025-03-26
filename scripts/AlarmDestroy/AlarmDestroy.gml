@@ -5,7 +5,7 @@
 
 /// @function AlarmDestroy( alarm_id );
 /// @description Destroy an alarm or array of alarms.
-/// @param {Any}	alarm_id	The ID or array of IDs of the previously created alarm
+/// @param {Any}	alarm_id	The ID or array of IDs of the previously created alarm. You can also use the "all" constant to destroy all alarms
 function AlarmDestroy(alarm_id) {
 	
     if (alarm_id == all) {
