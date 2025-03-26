@@ -93,11 +93,11 @@ Trigger an alarm or array of alarms and destroy it.
 > **Returns** `N/A`
 ### `AlarmDestroy(alarm_id)`
 
-Destroy an alarm or array of alarms.
+Destroy an alarm or array of alarms. You can also use the "all" constant to destroy all alarms
 
 | Argument |Type | Description |
 | :---- | :---- | :---- |
-| alarm_id | Alarm Id | The ID or array of IDs of the previously created alarm |
+| alarm_id | Alarm Id | The ID or array of IDs of the previously created alarm. You can also use the "all" constant to destroy all alarms |
 
 > **Returns** `N/A`
 # Demo Video
